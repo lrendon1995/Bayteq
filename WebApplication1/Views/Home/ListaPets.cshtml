@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplication1.Models.PetsViewModel>
+
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Scripts/DataTables/dataTables.buttons.min.js"></script>
+<link href="~/Content/DataTables/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+
+<div class="col-lg-12">
+    <table id="tblListaGeneral" class="table table-bordered table-striped table-hover dataTable">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="text-center" style="vertical-align: middle !important;">
+                    @Html.DisplayNameFor(Model => Model.id)
+                </th>
+                <th scope="col" class="text-center" style="vertical-align: middle !important;">
+                    @Html.DisplayNameFor(Model => Model.name)
+                </th>
+                <th scope="col" class="text-center" style="vertical-align: middle !important;">
+                    @Html.DisplayNameFor(Model => Model.status)
+                </th>
+            </tr>
+        </thead>
+        @if (Model != null)
+        {
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="tbbody">
+
+                        <td>
+                            @Html.Label(item.id.ToString())
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td class="tipotarje">
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
+
+    </table>
+</div>
+<script>
+    inicializarTablaGeneral("tblListaGeneral");
+</script>

@@ -1,0 +1,22 @@
+﻿@using WebApplication1.Helpers
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row">
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <div id="divResultadoPet" class="table-responsive">
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        consultar('@Url.Action("GetAllPets", "Home")', null, "#divResultadoPet", null, null);
+    });
+</script>
